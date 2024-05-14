@@ -65,7 +65,7 @@ public class LoginMenuScreen implements Screen {
         guestButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {;
-                User user = new User("Guest", "", 0, User.getRandomAvatar());
+                User user = new User("Guest", "", 0, 0,0,0,0, null);
                 User.setCurrentUser(user);
                 game.setScreen(new MainMenuScreen(game, user));
             }

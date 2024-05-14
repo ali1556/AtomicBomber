@@ -16,7 +16,7 @@ public class RegisterMenuController {
             return false;
         }
        else   {
-            User.setCurrentUser(new User(username, password, 0, User.getRandomAvatar()));
+            User.setCurrentUser(new User(username, password, 0, 0, 0,0,0, User.getRandomAvatar()));
             RegisterMenuScreen.removeErrorMessage();
             return true;
         }

@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.AtomicBomber;
-import com.mygdx.game.controller.GameScreen;
 import com.mygdx.game.controller.RegisterMenuController;
 import com.mygdx.game.model.User;
 
@@ -70,7 +69,7 @@ public class RegisterMenuScreen implements Screen {
         guestButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {;
-                User user = new User("Guest", "", 0, User.getRandomAvatar());
+                User user = new User("Guest", "", 0, 0,0,0,0, User.getRandomAvatar());
                 User.setCurrentUser(user);
                 game.setScreen(new MainMenuScreen(game, user));
             }

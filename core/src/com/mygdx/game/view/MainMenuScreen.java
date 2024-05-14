@@ -13,6 +13,7 @@ import com.mygdx.game.AtomicBomber;
 import com.mygdx.game.controller.ProfileMenuController;
 import com.mygdx.game.controller.LeaderboardController;
 import com.mygdx.game.controller.SettingsController;
+import com.mygdx.game.model.Player;
 import com.mygdx.game.model.User;
 
 public class MainMenuScreen implements Screen {
@@ -85,6 +86,12 @@ public class MainMenuScreen implements Screen {
                 game.setScreen(new StartMenuScreen(game));
             }
         });
+        playNewGameButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new GameScreen(game, Player.getCurrentPlayer()));
+            }
+        });
 
         Texture avatarTexture = User.getCurrentUser() != null ? User.getCurrentUser().getAvatar() : null;
         Image avatarImage = new Image(avatarTexture);
@@ -92,11 +99,13 @@ public class MainMenuScreen implements Screen {
         // Add components to the table
         table.add(avatarImage).size(64, 64).top().left().pad(20).center().row(); // Adjust size as needed
         table.add(userInfoLabel).top().left().pad(20).center().row();
+        table.add(playNewGameButton).width(200).pad(10).row();
         table.add(profileButton).width(200).pad(10).row();
         table.add(leaderboardButton).width(200).pad(10).row();
         table.add(settingsButton).width(200).pad(10).row();
         table.add(logoutButton).width(200).pad(10).row();
         table.add(exitButton).width(200).pad(10).row();
+
     }
 
     @Override
